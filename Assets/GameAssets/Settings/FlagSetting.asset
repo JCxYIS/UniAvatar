@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a0eff752116bf2439f630e43eac5395, type: 3}
   m_Name: FlagSetting
   m_EditorClassIdentifier: 
-  WordsheetCSV: {fileID: 4900000, guid: 9a76daf360994bb45a2b9a22f6a4b2a4, type: 3}
+  WordsheetCSV: {fileID: 4900000, guid: cd353ffeb1bc45840903ce2beba170c8, type: 3}
   Flags:
-  - Test
-  - "\u5403\u4E0D\u5403\u98EF"
+  - FLG_IS_OK
+  - FLG_Q1

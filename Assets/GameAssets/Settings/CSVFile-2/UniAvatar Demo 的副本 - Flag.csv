@@ -1,0 +1,3 @@
+Flag,Meaning,Value Description
+FLG_IS_OK,範例使用,玩家是否了解
+FLG_Q1,,問題 1 的回答 (1 是正確)

@@ -48,7 +48,10 @@ namespace UniAvatar
                 List<string> extraArgs = new List<string>();
                 for(int j = 7; j < grid.GetLength(0); j++)
                 {
-                    extraArgs.Add(grid[j, i]);
+                    if(!string.IsNullOrWhiteSpace(grid[j, i]))
+                        extraArgs.Add(grid[j, i]);
+                    else
+                        break;
                 }
                 data.ExtraArgs = extraArgs.ToArray();
 

@@ -21,8 +21,7 @@ namespace UniAvatar
         [Header("Animation Settings")]
         public float BG_FadeInDuration = .5f;
         public float BG_FadeOutDuration = .3f;
-        public float Text_FadeInDelay = .1f;
-        public float Text_FadeInDuration = .25f;
+        public float Text_TotalFadeInDuration = .5f;
 
         // #if TMP_SUPPORT
         //         private TMP_Text m_cTMP = new List<TMP_Text>();
@@ -58,6 +57,7 @@ namespace UniAvatar
             BackgroundImg.DOFade(0.5f, BG_FadeInDuration);
 
             // Create options
+			float duationPerChoice = Text_TotalFadeInDuration / choiceTexts.Length; ;
             for (int i = 0; i < choiceTexts.Length; i++) // FIXME option count
             {
                 Button g = Instantiate(ChoiceTemplate, ChoicesContainer);
@@ -67,8 +67,8 @@ namespace UniAvatar
                 // anim
                 CanvasGroup cg = g.GetComponent<CanvasGroup>();
                 cg.alpha = 0;
-                cg.DOFade(1, Text_FadeInDuration)
-                    .SetDelay(Text_FadeInDelay + Text_FadeInDuration * i);
+                cg.DOFade(1, duationPerChoice)
+                    .SetDelay(Text_TotalFadeInDuration / 2f + duationPerChoice * i);
 
                 // text
 #if TMP_SUPPORT

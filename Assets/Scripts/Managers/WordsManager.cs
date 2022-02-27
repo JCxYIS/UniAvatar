@@ -26,7 +26,15 @@ namespace UniAvatar
 
         public string GetWordByKey(string key)
         {
-            return m_wordSettingMap[key].Contents[CurrentLanaguage];
+            try
+            {
+                return m_wordSettingMap[key].Contents[CurrentLanaguage];
+            }
+            catch (KeyNotFoundException)
+            {
+                Debug.LogError($"Cannot find the word, with key={key}, language={CurrentLanaguage}");
+                return "";
+            }
         }
 
     }

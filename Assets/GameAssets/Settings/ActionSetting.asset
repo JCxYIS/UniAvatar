@@ -12,104 +12,157 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7e28f0b70885540bbaf407d093d1ed, type: 3}
   m_Name: ActionSetting
   m_EditorClassIdentifier: 
-  ActionsheetCSV: {fileID: 4900000, guid: d6020a3e8fd36da4882713bf1cff1d12, type: 3}
+  ActionsheetCSV: {fileID: 4900000, guid: 3fcc3768b0ffb1249ab39b207a1dc5df, type: 3}
   ActionDatas:
   - Step: 1
     Type: Talk
     Arg1: "\u904A\u7A57"
-    Arg2: "\u65E9\u5B89"
+    Arg2: "\u5927\u5BB6\u597D\uFF5E\u6B61\u8FCE\u4F86\u5230UniAvatar\u7BC4\u4F8B"
     Arg3: 
     Arg4: 
     Arg5: 
-    ExtraArgs:
-    - "\r"
+    ExtraArgs: []
   - Step: 2
     Type: Talk
     Arg1: "\u5F69\u5E0C"
-    Arg2: "\u65E9\u5B89\uFF0C\u4F60\u5403\u65E9\u9910\u4E86\u55CE\uFF1F"
+    Arg2: "\u9019\u662F\u4E00\u500B\u7C21\u55AE\u7684\u5C0D\u8A71\u7CFB\u7D71\u67B6\u69CB\u8207\u6587\u5B57\u5192\u96AA\u904A\u6232\u7684\u7BC4\u4F8B"
     Arg3: 
     Arg4: 
     Arg5: 
-    ExtraArgs:
-    - "\r"
+    ExtraArgs: []
   - Step: 3
-    Type: Talk
-    Arg1: "\u904A\u7A57"
-    Arg2: "\u6211\u4E0D\u5403\u65E9\u9910"
-    Arg3: 
-    Arg4: 
-    Arg5: 
-    ExtraArgs:
-    - "\r"
-  - Step: 4
     Type: Animate
     Arg1: "\u5F69\u5E0C"
     Arg2: CharacterJump
     Arg3: 
     Arg4: 
     Arg5: 
-    ExtraArgs:
-    - "\r"
+    ExtraArgs: []
+  - Step: 4
+    Type: Talk
+    Arg1: "\u5F69\u5E0C"
+    Arg2: "\u53EF\u4EE5\u7C21\u55AE\u7684\u5229\u7528\u7DE8\u8F2F\u8A66\u7B97\u8868\u7684\u65B9\u5F0F\u4F86\u7DE8\u8F2F\u904A\u6232\u5287\u60C5"
+    Arg3: 
+    Arg4: 
+    Arg5: 
+    ExtraArgs: []
   - Step: 5
+    Type: Talk
+    Arg1: "\u904A\u7A57"
+    Arg2: "\u5982\u4F55\u64CD\u4F5C\u9019\u500B\u5C08\u6848\u7684\u57FA\u672C\u529F\u80FD\uFF0C\u8ACB\u53C3\u8003\u4F5C\u8005\u7684\u90E8\u843D\u683C"
+    Arg3: 
+    Arg4: 
+    Arg5: 
+    ExtraArgs: []
+  - Step: 6
     Type: Animate
     Arg1: "\u5F69\u5E0C"
     Arg2: AkiSmile
     Arg3: 
     Arg4: 
     Arg5: 
-    ExtraArgs:
-    - "\r"
-  - Step: 6
-    Type: Talk
-    Arg1: "\u5F69\u5E0C"
-    Arg2: "\u9019\u6A23\u5F88\u4E0D\u5065\u5EB7\u5594"
-    Arg3: 
-    Arg4: 
-    Arg5: 
-    ExtraArgs:
-    - "\r"
+    ExtraArgs: []
   - Step: 7
     Type: Talk
-    Arg1: "\u904A\u7A57"
-    Arg2: "(\u8A72......\u8A72\u600E\u9EBC\u8FA6)"
+    Arg1: "\u5F69\u5E0C"
+    Arg2: "\u5404\u9805\u529F\u80FD\u7684\u958B\u767C\u7D30\u7BC0\uFF0C\u8207\u65B0\u589E\u65B9\u6CD5\u7B49\uFF0C\u4E4B\u5F8C\u6703\u9678\u7E8C\u767C\u5E03\u5728\u90E8\u843D\u683C\u4E0A\uFF0C\u656C\u8ACB\u671F\u5F85\uFF01"
     Arg3: 
     Arg4: 
     Arg5: 
-    ExtraArgs:
-    - "\r"
+    ExtraArgs: []
   - Step: 8
-    Type: Choice
-    Arg1: "\u5403\u4E0D\u5403\u98EF"
-    Arg2: "\u4E56\u4E56\u53BB\u5403"
-    Arg3: "\u5C31\u662F\u4E0D\u5403"
-    Arg4: "\u5403"
-    Arg5: "\u4E0D\u5403"
-    ExtraArgs:
-    - "\r"
-  - Step: 9
-    Type: Branch
-    Arg1: "\u5403\u4E0D\u5403\u98EF"
-    Arg2: "\u5403"
-    Arg3: 10
-    Arg4: 6
-    Arg5: 
-    ExtraArgs:
-    - "\r"
-  - Step: 10
     Type: Talk
     Arg1: "\u904A\u7A57"
-    Arg2: "\u6211\u6703\u4E56\u4E56\u53BB\u5403\u7684..."
+    Arg2: "\u9019\u6A23\u7406\u89E3\u4E86\u55CE\uFF0C\u9084\u662F\u8981\u518D\u770B\u4E00\u6B21\u5462\uFF1F"
     Arg3: 
     Arg4: 
     Arg5: 
-    ExtraArgs:
-    - "\r"
+    ExtraArgs: []
+  - Step: 9
+    Type: Choice
+    Arg1: FLG_IS_OK
+    Arg2: "\u7406\u89E3\u4E86\uFF01"
+    Arg3: "\u518D\u770B\u4E00\u6B21"
+    Arg4: TRUE
+    Arg5: FALSE
+    ExtraArgs: []
+  - Step: 10
+    Type: Branch
+    Arg1: FLG_IS_OK
+    Arg2: TRUE
+    Arg3: 11
+    Arg4: 1
+    Arg5: 
+    ExtraArgs: []
   - Step: 11
     Type: Talk
     Arg1: "\u5F69\u5E0C"
-    Arg2: "\u592A\u597D\u4E86\uFF01"
+    Arg2: "\u4F86\u8003\u8003\u4F60\u5594\uFF0C\u7AD9\u5728\u6211\u65C1\u908A\u7684\uFF0C\u662F\u53EB\u505A\u4EC0\u9EBC\u540D\u5B57\u5462\uFF1F"
     Arg3: 
     Arg4: 
     Arg5: 
+    ExtraArgs: []
+  - Step: 12
+    Type: Choice
+    Arg1: FLG_Q1
+    Arg2: "\u904A\u7A57"
+    Arg3: "\u5F69\u5E0C"
+    Arg4: 1
+    Arg5: 2
     ExtraArgs:
-    - "\r"
+    - "\u67FF\u5B50"
+    - 3
+    - "\u7FBD\u611B"
+    - 4
+    - "\u7D2B\u59A1"
+    - 5
+    - "\u97F3\u5948"
+    - "6\r"
+  - Step: 13
+    Type: Branch
+    Arg1: FLG_Q1
+    Arg2: 1
+    Arg3: 16
+    Arg4: 
+    Arg5: 
+    ExtraArgs: []
+  - Step: 14
+    Type: Talk
+    Arg1: "\u5F69\u5E0C"
+    Arg2: "\u7B54\u932F\u4E86\u5594\uFF0C\u518D\u8A66\u4E00\u6B21\u5427"
+    Arg3: 
+    Arg4: 
+    Arg5: 
+    ExtraArgs: []
+  - Step: 15
+    Type: Branch
+    Arg1: 
+    Arg2: 
+    Arg3: 11
+    Arg4: 
+    Arg5: 
+    ExtraArgs: []
+  - Step: 16
+    Type: Talk
+    Arg1: "\u904A\u7A57"
+    Arg2: "\u7B54\u5C0D\u4E86\uFF01\u592A\u597D\u4E86"
+    Arg3: 
+    Arg4: 
+    Arg5: 
+    ExtraArgs: []
+  - Step: 17
+    Type: Talk
+    Arg1: "\u5F69\u5E0C"
+    Arg2: "\u90A3\u9EBC\u9019\u500B\u7BC4\u4F8B\u5C31\u5230\u9019\u908A\u7D50\u675F\u4E86\uFF01"
+    Arg3: 
+    Arg4: 
+    Arg5: 
+    ExtraArgs: []
+  - Step: 18
+    Type: Talk
+    Arg1: "\u904A\u7A57"
+    Arg2: "\u611F\u8B1D\u4F60\u7684\u904A\u73A9\uFF01"
+    Arg3: 
+    Arg4: 
+    Arg5: 
+    ExtraArgs: []

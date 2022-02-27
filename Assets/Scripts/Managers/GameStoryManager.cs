@@ -65,17 +65,41 @@ namespace UniAvatar
             {
                 var flag = arg1;
                 var matchValue = arg2;
-                var matchStep = int.Parse(arg3);
-                var unmatchStep = int.Parse(arg4);
+                int matchStep = 0;
+                int unmatchStep = 0;
 
-                var flagValue = FlagManager.Instance.Get(flag);
-                if (string.Equals(flagValue, matchValue))
+                // match/unmatch step
+                if(string.IsNullOrWhiteSpace(arg3))
+                {
+                    matchStep = m_actionPtr + 1;
+                    Debug.Log("Unset matchStep, treat as current step + 1");
+                }
+                else if(!int.TryParse(arg3, out matchStep))
+                {
+                    Debug.LogError("Failed to match matchStep of branch");
+                    return;
+                }
+                if(string.IsNullOrWhiteSpace(arg4))
+                {
+                    unmatchStep = m_actionPtr + 1;
+                    Debug.Log("Unset unmatchStep, treat as current step + 1");
+                }
+                else if(!int.TryParse(arg4, out unmatchStep))
+                {
+                    Debug.LogError("Failed to match unmatchStep of branch");
+                    return;
+                }
+
+                // match condition
+                if (string.IsNullOrWhiteSpace(flag) || string.Equals(FlagManager.Instance.Get(flag), matchValue))
                 {
                     m_actionPtr = matchStep - 1;
+                    print("branch condition match, goto "+m_actionPtr);
                 }
                 else
                 {
                     m_actionPtr = unmatchStep - 1;
+                    print("branch condition unmatch, goto "+m_actionPtr);
                 }
 
                 // Also, jump to next step after branching.

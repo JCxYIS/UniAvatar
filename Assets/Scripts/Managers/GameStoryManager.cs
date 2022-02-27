@@ -7,7 +7,6 @@ namespace UniAvatar
 {
     public class GameStoryManager : MonoSingleton<GameStoryManager>
     {
-
         public ActionSetting ActionSetting;
 
         private Dictionary<string, IAction> m_actionMap = new Dictionary<string, IAction>();
@@ -72,7 +71,7 @@ namespace UniAvatar
                 if(string.IsNullOrWhiteSpace(arg3))
                 {
                     matchStep = m_actionPtr + 1;
-                    Debug.Log("Unset matchStep, treat as current step + 1");
+                    // Debug.Log("Unset matchStep, treat as current step + 1");
                 }
                 else if(!int.TryParse(arg3, out matchStep))
                 {
@@ -82,7 +81,7 @@ namespace UniAvatar
                 if(string.IsNullOrWhiteSpace(arg4))
                 {
                     unmatchStep = m_actionPtr + 1;
-                    Debug.Log("Unset unmatchStep, treat as current step + 1");
+                    // Debug.Log("Unset unmatchStep, treat as current step + 1");
                 }
                 else if(!int.TryParse(arg4, out unmatchStep))
                 {
@@ -94,12 +93,12 @@ namespace UniAvatar
                 if (string.IsNullOrWhiteSpace(flag) || string.Equals(FlagManager.Instance.Get(flag), matchValue))
                 {
                     m_actionPtr = matchStep - 1;
-                    print("branch condition match, goto "+m_actionPtr);
+                    // print("branch condition match, goto "+m_actionPtr);
                 }
                 else
                 {
                     m_actionPtr = unmatchStep - 1;
-                    print("branch condition unmatch, goto "+m_actionPtr);
+                    // print("branch condition unmatch, goto "+m_actionPtr);
                 }
 
                 // Also, jump to next step after branching.

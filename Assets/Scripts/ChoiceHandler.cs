@@ -5,82 +5,130 @@ using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
 using TMPro;
+using DG.Tweening;
 
 namespace UniAvatar
 {
     public class ChoiceHandler : MonoBehaviour
     {
-        [SerializeField] private Animator m_choiceAnimator;
+        // [SerializeField] private Animator m_choiceAnimator;
+        [Header("Bindings")]
+        public Image BackgroundImg;
+        public Transform ChoicesContainer;
+        public Button ChoiceTemplate;
+        private CanvasGroup m_canvasGroup;
 
-        public Button Choice1;
-        public Button Choice2;
+        [Header("Animation Settings")]
+        public float BG_FadeInDuration = .5f;
+        public float BG_FadeOutDuration = .3f;
+        public float Text_FadeInDelay = .1f;
+        public float Text_FadeInDuration = .25f;
 
-#if TMP_SUPPORT
-        private TMP_Text m_c1TMP;
-        private TMP_Text m_c2TMP;
-#else
-        private Text m_c1Text;
-        private Text m_c2Text;
-#endif
-        private IDisposable m_sub1;
-        private IDisposable m_sub2;
+        // #if TMP_SUPPORT
+        //         private TMP_Text m_cTMP = new List<TMP_Text>();
+        // #else
+        //         private List<Text> m_cText = new List<Text>();
+        // #endif
+        private List<IDisposable> m_subs = new List<IDisposable>();
+        private List<Button> m_choices = new List<Button>();
 
         private void Awake()
         {
+            m_canvasGroup = GetComponent<CanvasGroup>();
+			if(!m_canvasGroup)
+				m_canvasGroup = gameObject.AddComponent<CanvasGroup>();
             Init();
         }
 
         private void Init()
         {
-#if TMP_SUPPORT
-            m_c1TMP = Choice1.GetComponentInChildren<TMP_Text>();
-            m_c2TMP = Choice2.GetComponentInChildren<TMP_Text>();
-#else
-            m_c1Text = Choice1.GetComponentInChildren<Text>();
-            m_c2Text = Choice2.GetComponentInChildren<Text>();
-#endif
+            BackgroundImg.gameObject.SetActive(false);
+            ChoiceTemplate.gameObject.SetActive(false);
+			m_canvasGroup.alpha = 0;
+            m_choices.ForEach(b => Destroy(b.gameObject));
+            m_choices.Clear();
         }
 
         public void ShowChoice(string flag, string c1Text, string c2Text, string c1Value, string c2Value, System.Action callback)
         {
- #if TMP_SUPPORT
-            m_c1TMP.text = c1Text;
-            m_c2TMP.text = c2Text;
+            // Fade BG
+			m_canvasGroup.alpha = 1;
+            BackgroundImg.gameObject.SetActive(true);
+            BackgroundImg.color = Color.clear;
+            BackgroundImg.DOFade(0.5f, BG_FadeInDuration);
+
+            // Create options
+            for (int i = 0; i < 4; i++) // FIXME option count
+            {
+                Button g = Instantiate(ChoiceTemplate, ChoicesContainer);
+                g.gameObject.SetActive(true);
+                m_choices.Add(g);
+
+                // anim
+                CanvasGroup cg = g.GetComponent<CanvasGroup>();
+                cg.alpha = 0;
+                cg.DOFade(1, Text_FadeInDuration)
+                    .SetDelay(Text_FadeInDelay + Text_FadeInDuration * i);
+
+                // text
+#if TMP_SUPPORT
+                g.GetComponentInChildren<TMP_Text>().text = "Option" + i;
 #else
-            m_c1Text.text = c1Text;
-            m_c2Text.text = c2Text;;
+        		g.GetComponentInChildren<Text>().text = "Option"+ i;
 #endif
+                // listener
+                AddChoiceButtonListener(g, flag, c1Value, callback);
+            }
 
-            m_choiceAnimator.SetBool("Show", true);
 
-            m_sub1 =
-            Choice1.OnClickAsObservable()
-                   .First()
-                   .Subscribe(_ =>
-                   {
-                       FlagManager.Instance.Set(flag, c1Value);
-                       m_choiceAnimator.SetBool("Show", false);
-                       m_sub1?.Dispose();
-                       m_sub2?.Dispose();
-                       Observable.Interval(TimeSpan.FromSeconds(1))
-                                 .First()
-                                 .Subscribe(__ => callback.Invoke());
-                   });
-            m_sub2 =
-            Choice2.OnClickAsObservable()
-                   .First()
-                   .Subscribe(_ =>
-                   {
-                       FlagManager.Instance.Set(flag, c2Value);
-                       m_choiceAnimator.SetBool("Show", false);
-                       m_sub1?.Dispose();
-                       m_sub2?.Dispose();
-                       Observable.Interval(TimeSpan.FromSeconds(1))
-                                 .First()
-                                 .Subscribe(__ => callback.Invoke());
-                   });
+            // m_choiceAnimator.SetBool("Show", true);
+
+            // m_sub1 =
+            // Choice1.OnClickAsObservable()
+            //        .First()
+            //        .Subscribe(_ =>
+            //        {
+            //            FlagManager.Instance.Set(flag, c1Value);
+            //            m_choiceAnimator.SetBool("Show", false);
+            //            m_sub1?.Dispose();
+            //            m_sub2?.Dispose();
+            //            Observable.Interval(TimeSpan.FromSeconds(1))
+            //                      .First()
+            //                      .Subscribe(__ => callback.Invoke());
+            //        });
 
         }
 
+        public void AddChoiceButtonListener(Button button, string flagName, string flagValue, System.Action callback)
+        {
+            var obs = button.OnClickAsObservable()
+                   .First()
+                   .Subscribe(_ =>
+                   {
+                       	// set flags
+                       	FlagManager.Instance.Set(flagName, flagValue);
+
+                       	// disponse all listeners
+                       	m_subs.ForEach(o => o.Dispose());
+                       	m_subs.Clear();
+
+                       	// anim
+						m_canvasGroup.DOFade(0, BG_FadeOutDuration)
+							.OnComplete(()=>{
+								callback.Invoke();
+                       	        Init();
+							});
+
+                       	// wait for anim
+                       	// Observable.Interval(TimeSpan.FromSeconds(1))
+                       	//     .First()
+                       	//     .Subscribe(__ =>
+                       	//     {
+                       	//         callback.Invoke();
+                       	//         Init();
+                       	//     });
+                   });
+            m_subs.Add(obs);
+        }
     }
 }

@@ -21,6 +21,8 @@ MonoBehaviour:
     Arg3: 
     Arg4: 
     Arg5: 
+    ExtraArgs:
+    - "\r"
   - Step: 2
     Type: Talk
     Arg1: "\u5F69\u5E0C"
@@ -28,6 +30,8 @@ MonoBehaviour:
     Arg3: 
     Arg4: 
     Arg5: 
+    ExtraArgs:
+    - "\r"
   - Step: 3
     Type: Talk
     Arg1: "\u904A\u7A57"
@@ -35,6 +39,8 @@ MonoBehaviour:
     Arg3: 
     Arg4: 
     Arg5: 
+    ExtraArgs:
+    - "\r"
   - Step: 4
     Type: Animate
     Arg1: "\u5F69\u5E0C"
@@ -42,6 +48,8 @@ MonoBehaviour:
     Arg3: 
     Arg4: 
     Arg5: 
+    ExtraArgs:
+    - "\r"
   - Step: 5
     Type: Animate
     Arg1: "\u5F69\u5E0C"
@@ -49,6 +57,8 @@ MonoBehaviour:
     Arg3: 
     Arg4: 
     Arg5: 
+    ExtraArgs:
+    - "\r"
   - Step: 6
     Type: Talk
     Arg1: "\u5F69\u5E0C"
@@ -56,6 +66,8 @@ MonoBehaviour:
     Arg3: 
     Arg4: 
     Arg5: 
+    ExtraArgs:
+    - "\r"
   - Step: 7
     Type: Talk
     Arg1: "\u904A\u7A57"
@@ -63,6 +75,8 @@ MonoBehaviour:
     Arg3: 
     Arg4: 
     Arg5: 
+    ExtraArgs:
+    - "\r"
   - Step: 8
     Type: Choice
     Arg1: "\u5403\u4E0D\u5403\u98EF"
@@ -70,6 +84,8 @@ MonoBehaviour:
     Arg3: "\u5C31\u662F\u4E0D\u5403"
     Arg4: "\u5403"
     Arg5: "\u4E0D\u5403"
+    ExtraArgs:
+    - "\r"
   - Step: 9
     Type: Branch
     Arg1: "\u5403\u4E0D\u5403\u98EF"
@@ -77,6 +93,8 @@ MonoBehaviour:
     Arg3: 10
     Arg4: 6
     Arg5: 
+    ExtraArgs:
+    - "\r"
   - Step: 10
     Type: Talk
     Arg1: "\u904A\u7A57"
@@ -84,6 +102,8 @@ MonoBehaviour:
     Arg3: 
     Arg4: 
     Arg5: 
+    ExtraArgs:
+    - "\r"
   - Step: 11
     Type: Talk
     Arg1: "\u5F69\u5E0C"
@@ -91,3 +111,5 @@ MonoBehaviour:
     Arg3: 
     Arg4: 
     Arg5: 
+    ExtraArgs:
+    - "\r"

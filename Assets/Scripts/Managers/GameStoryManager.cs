@@ -58,6 +58,7 @@ namespace UniAvatar
             var arg3 = actionData.Arg3;
             var arg4 = actionData.Arg4;
             var arg5 = actionData.Arg5;
+            var extraArgs = actionData.ExtraArgs;
 
             // Branch is a special action, jump the action pointer directly.
             if (string.Equals(actionData.Type, "Branch"))
@@ -84,7 +85,7 @@ namespace UniAvatar
 
             // Execute next action, if some action auto go next, send callback play.
             var action = m_actionMap[actionData.Type];
-            action.Execute(arg1, arg2, arg3, arg4, arg5, () => Play());
+            action.Execute(arg1, arg2, arg3, arg4, arg5, ()=>Play(), extraArgs);
 
             // If the action is animate, pass to next.
             if (string.Equals(actionData.Type, "Animate"))

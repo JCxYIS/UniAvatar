@@ -49,7 +49,7 @@ namespace UniAvatar
             m_choices.Clear();
         }
 
-        public void ShowChoice(string flag, string c1Text, string c2Text, string c1Value, string c2Value, System.Action callback)
+        public void ShowChoice(string flag, string[] choiceTexts, string[] choiceValues, System.Action callback)
         {
             // Fade BG
 			m_canvasGroup.alpha = 1;
@@ -58,7 +58,7 @@ namespace UniAvatar
             BackgroundImg.DOFade(0.5f, BG_FadeInDuration);
 
             // Create options
-            for (int i = 0; i < 4; i++) // FIXME option count
+            for (int i = 0; i < choiceTexts.Length; i++) // FIXME option count
             {
                 Button g = Instantiate(ChoiceTemplate, ChoicesContainer);
                 g.gameObject.SetActive(true);
@@ -72,12 +72,12 @@ namespace UniAvatar
 
                 // text
 #if TMP_SUPPORT
-                g.GetComponentInChildren<TMP_Text>().text = "Option" + i;
+                g.GetComponentInChildren<TMP_Text>().text = choiceTexts[i];
 #else
-        		g.GetComponentInChildren<Text>().text = "Option"+ i;
+        		g.GetComponentInChildren<Text>().text = choiceTexts[i];
 #endif
                 // listener
-                AddChoiceButtonListener(g, flag, c1Value, callback);
+                AddChoiceButtonListener(g, flag, choiceValues[i], callback);
             }
 
 

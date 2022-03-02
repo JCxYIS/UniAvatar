@@ -47,7 +47,7 @@ public class InitDemo : MonoBehaviour
         go = Instantiate(m_prefabUgui);
 #endif
         var uniAvatar = go.GetComponent<UniAvatar.UniAvatar>();
-        uniAvatar.Init(m_storys[m_storyDropdown.value]);
+        uniAvatar.Init(m_storys[m_storyDropdown.value], int.Parse(m_startOnStep.text));
         uniAvatar.OnFinishStory.AddListener(()=>{
             print("Back to InitDemo");
             Destroy(uniAvatar.gameObject);

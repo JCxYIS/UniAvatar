@@ -38,12 +38,12 @@ namespace UniAvatar
                 Init(StorySetting);
         }
 
-        public void Init(StorySetting storySetting)
+        public void Init(StorySetting storySetting, int startAtStep = 1)
         {
             StorySetting = storySetting;
             flagManager.Init(storySetting.FlagSetting);
             wordsManager.Init(storySetting.WordSetting);
-            gameStoryManager.Init(storySetting.ActionSetting);
+            gameStoryManager.Init(storySetting.ActionSetting, startAtStep);
 
             isInited = true;
             print("[UniAvatar] Inited");

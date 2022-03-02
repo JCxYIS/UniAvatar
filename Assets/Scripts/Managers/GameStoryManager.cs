@@ -27,9 +27,10 @@ namespace UniAvatar
             Play();
         }
 
-        public void Init(ActionSetting actionSetting)
+        public void Init(ActionSetting actionSetting, int startAtStep = 1)
         {
             ActionSetting = actionSetting;
+            m_actionPtr = startAtStep;
             
             m_actionMap.Add("Talk", new Talk());
             m_actionMap.Add("Animate", new Animate());

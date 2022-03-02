@@ -12,7 +12,7 @@
 - 把物件包裝在 prefab 裡，要使用時直接 instantiate 使用
 - 新增 UniAvatar 組件，作為該 prefab 的啟動器
 
-## 新增事件
+## 監聽結束事件
 - 可以掛對話結束後要做什麼 (UniAvatar 或 GameStoryManager 的 OnFinishStory)
 
 

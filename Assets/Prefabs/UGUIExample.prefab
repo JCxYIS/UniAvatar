@@ -1414,7 +1414,7 @@ Canvas:
   m_GameObject: {fileID: 4305119115909433753}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1615,6 +1615,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActionSetting: {fileID: 11400000, guid: 44a366bc76b29c74e9e42f8e8a041fb3, type: 2}
+  PlayOnStart: 1
+  OnFinishStory:
+    m_PersistentCalls:
+      m_Calls: []
   m_actionPtr: 1
 --- !u!1 &4305119116250906150
 GameObject:

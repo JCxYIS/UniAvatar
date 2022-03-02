@@ -28,9 +28,10 @@ namespace UniAvatar
         protected override TextAsset Csv => ActionsheetCSV;
 
 
-        public void SetUpActions()
+        public void SetUpActions(string dataStr = "")
         {
-            string dataStr = ActionsheetCSV.text;
+            if(dataStr == "")
+                dataStr = ActionsheetCSV.text;
 
             var grid = CSVReader.SplitCsvGrid(dataStr);
             ActionDatas = new List<ActionData>();
@@ -57,8 +58,17 @@ namespace UniAvatar
                 }
                 data.ExtraArgs = extraArgs.ToArray();
 
-                if (!string.IsNullOrEmpty(data.Type))
-                    ActionDatas.Add(data);
+                // if (!string.IsNullOrEmpty(data.Type))
+                ActionDatas.Add(data);
+            }
+
+            // trim empty from the end
+            while(true)
+            {
+                if(string.IsNullOrEmpty(ActionDatas[ActionDatas.Count - 1].Type))
+                    ActionDatas.RemoveAt(ActionDatas.Count - 1);
+                else 
+                    break;
             }
         }     
 

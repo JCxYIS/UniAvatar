@@ -1732,6 +1732,7 @@ MonoBehaviour:
     type: 3}
   m_storys:
   - {fileID: 11400000, guid: d96c168a60ecb1f45b610de1d1aa53d6, type: 2}
+  - {fileID: 11400000, guid: cd492e48ec71a5a4eabf1493bb1dd05d, type: 2}
 --- !u!4 &1458051262
 Transform:
   m_ObjectHideFlags: 0

@@ -24,9 +24,10 @@ namespace UniAvatar
 
         protected override TextAsset Csv => WordsheetCSV;
 
-        public void SetUpWord()
+        public void SetUpWord(string dataStr = "")
         {
-            string dataStr = WordsheetCSV.text;
+            if(dataStr == "")
+                dataStr = WordsheetCSV.text;
 
             var grid = CSVReader.SplitCsvGrid(dataStr);
 

@@ -17,9 +17,10 @@ namespace UniAvatar
 
         protected override TextAsset Csv => WordsheetCSV;
 
-        public void SetUpFlag()
+        public void SetUpFlag(string dataStr = "")
         {
-            string dataStr = WordsheetCSV.text;
+            if(dataStr == "")
+                dataStr = WordsheetCSV.text;
 
             var grid = CSVReader.SplitCsvGrid(dataStr);
 

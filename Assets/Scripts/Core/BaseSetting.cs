@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Utopia;
 using UnityEngine;
-using UnityEditor;
 
 namespace UniAvatar
 {
@@ -17,7 +16,8 @@ namespace UniAvatar
         public void LoadCsvFromGoogleSheet()
         {
 #if UNITY_EDITOR
-            JC.Utilities.GSheetDownloader.DownloadCsv(AssetDatabase.GetAssetPath(Csv), GoogleSheetUrl);
+            string path = Csv == null ? UnityEditor.FileUtil.GetUniqueTempPathInProject() : UnityEditor.AssetDatabase.GetAssetPath(Csv);
+            JC.Utilities.GSheetDownloader.DownloadCsv(path, GoogleSheetUrl);                
             // EditorUtility.SetDirty(CsvPath);
 #endif
         }

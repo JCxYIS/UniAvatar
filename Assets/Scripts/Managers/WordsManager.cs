@@ -21,6 +21,11 @@ namespace UniAvatar
 
         public void Init(WordSetting ws)
         {
+            if(WordSetting == null)
+            {
+                Debug.LogWarning("WordSetting is null! That means we all use the \"key\" value to print");
+                return;
+            }
             m_wordSettingMap = WordSetting.WordSheet.ToDictionary(x => x.PrimaryKey);
         }
 
@@ -32,8 +37,8 @@ namespace UniAvatar
             }
             catch (KeyNotFoundException)
             {
-                Debug.LogError($"Cannot find the word, with key={key}, language={CurrentLanaguage}");
-                return "";
+                Debug.LogWarning($"Cannot find the word, with key={key}, language={CurrentLanaguage}");
+                return key;
             }
         }
 

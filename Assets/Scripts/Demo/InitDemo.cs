@@ -46,8 +46,16 @@ public class InitDemo : MonoBehaviour
 #else
         go = Instantiate(m_prefabUgui);
 #endif
-        var uniAvatar = go.GetComponent<UniAvatar.UniAvatar>();
+        var uniAvatar = go.GetComponent<UniAvatarManager>();
+
+
         uniAvatar.Init(m_storys[m_storyDropdown.value], int.Parse(m_startOnStep.text));
+
+        uniAvatar.CustomActions.Add("DO_PRINT_HELLO_IN_CONSOLE", ()=>{
+            print("Hello");
+            UniAvatarManager.Instance.GameStoryManager.Play();
+        });
+
         uniAvatar.OnFinishStory.AddListener(()=>{
             print("Back to InitDemo");
             Destroy(uniAvatar.gameObject);

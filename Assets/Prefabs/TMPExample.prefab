@@ -190,18 +190,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 6469328946034277593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8f1b1531f7de9f4c932b5aa9aa3acd4, type: 3}
+  m_Script: {fileID: 11500000, guid: 1659a6c2a5b46a84ca652e154ce97448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StorySetting: {fileID: 11400000, guid: d96c168a60ecb1f45b610de1d1aa53d6, type: 2}
-  animationManager: {fileID: 6469328946643241388}
-  audioManager: {fileID: 6469328946375691032}
-  choiceManager: {fileID: 6469328947397670980}
-  dialogueManager: {fileID: 6469328946768417052}
-  flagManager: {fileID: 6469328947242356637}
-  gameStoryManager: {fileID: 6469328946288611006}
-  inputManager: {fileID: 6469328947766255363}
-  wordsManager: {fileID: 6469328947902831742}
+  AnimationManager: {fileID: 6469328946643241388}
+  AudioManager: {fileID: 6469328946375691032}
+  ChoiceManager: {fileID: 6469328947397670980}
+  DialogueManager: {fileID: 6469328946768417052}
+  FlagManager: {fileID: 6469328947242356637}
+  GameStoryManager: {fileID: 6469328946288611006}
+  InputManager: {fileID: 6469328947766255363}
+  WordsManager: {fileID: 6469328947902831742}
 --- !u!1 &6469328946074410942
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,5 +18,9 @@
 ## 監聽結束事件
 - 可以掛對話結束後要做什麼 (UniAvatar 或 GameStoryManager 的 OnFinishStory)
 
+## 其他小改動
+- 像是在 Word 找不到 key 的時候，之前會報錯並卡住，現在一樣抱錯，但先回傳 key
+    - Flag 也是，找不到 flag 也是先讓它設
+
 
 @jcxyis 20220302

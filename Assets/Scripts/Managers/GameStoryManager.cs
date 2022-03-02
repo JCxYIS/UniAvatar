@@ -13,6 +13,7 @@ namespace UniAvatar
         public UnityEvent OnFinishStory;
 
         private Dictionary<string, IAction> m_actionMap = new Dictionary<string, IAction>();
+        public Dictionary<string, System.Action> CustomActionMap;
         [SerializeField] [ReadOnly] private int m_actionPtr = 1;
 
         public HashSet<string> m_nameList = new HashSet<string>();
@@ -27,10 +28,11 @@ namespace UniAvatar
             Play();
         }
 
-        public void Init(ActionSetting actionSetting, int startAtStep = 1)
+        public void Init(ActionSetting actionSetting, int startAtStep = 1, Dictionary<string, System.Action> customActions = null)
         {
             ActionSetting = actionSetting;
-            m_actionPtr = startAtStep;
+            m_actionPtr = startAtStep - 1;
+            CustomActionMap = customActions ?? new Dictionary<string, System.Action>();
             
             m_actionMap.Add("Talk", new Talk());
             m_actionMap.Add("Animate", new Animate());
@@ -47,6 +49,7 @@ namespace UniAvatar
 
         public void Play()
         {
+            // eof
             if (m_actionPtr >= ActionSetting.ActionDatas.Count)
             {
                 Debug.Log("Reach last action.");
@@ -54,10 +57,16 @@ namespace UniAvatar
                 return;
             }
 
+            // ++
             var actionData = ActionSetting.ActionDatas[m_actionPtr++];
 
-            if (string.IsNullOrEmpty(actionData.Type))
+            // exit
+            if (string.IsNullOrEmpty(actionData.Type) || actionData.Type == "Stop")
+            {
+                Debug.Log("Stop / Empty action. Now exit.");
+                OnFinishStory.Invoke();
                 return;
+            }
 
             var arg1 = actionData.Arg1;
             var arg2 = actionData.Arg2;
@@ -109,6 +118,14 @@ namespace UniAvatar
                 }
 
                 // Also, jump to next step after branching.
+                Play();
+                return;
+            }
+            else if(string.Equals(actionData.Type, "Custom"))
+            {
+                // custom action!
+                if(CustomActionMap.TryGetValue(actionData.Arg1, out System.Action a))
+                    a.Invoke();
                 Play();
                 return;
             }

@@ -9,13 +9,13 @@ public class WordSettingEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        if(GUILayout.Button("Load CSV from Google Sheet"))
+        if(GUILayout.Button("Setup Word Setting from Google Sheet"))
         {
             var wordSetting = (WordSetting)target;
             wordSetting.LoadCsvFromGoogleSheet();
         }
 
-        bool clickBtn = GUILayout.Button("Setup Word Setting");
+        bool clickBtn = GUILayout.Button("Setup Word Setting from CSV");
         if (clickBtn)
         {
             var wordSetting = (WordSetting)target;

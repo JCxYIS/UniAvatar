@@ -49,6 +49,7 @@ public class InitDemo : MonoBehaviour
         var uniAvatar = go.GetComponent<UniAvatar.UniAvatar>();
         uniAvatar.Init(m_storys[m_storyDropdown.value]);
         uniAvatar.OnFinishStory.AddListener(()=>{
+            print("Back to InitDemo");
             Destroy(uniAvatar.gameObject);
         });
     }

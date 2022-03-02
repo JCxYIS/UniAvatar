@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TextMeshProExample.unity
     guid: b09928e7566c73d46a37e65b98a64b36
+  - enabled: 1
+    path: Assets/Scenes/UGUIextExample.unity
+    guid: e70035e5e23526c4183291196b2c07e5
   m_configObjects: {}

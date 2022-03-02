@@ -2,12 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace UniAvatar
 {
     public class GameStoryManager : MonoSingleton<GameStoryManager>
     {
         public ActionSetting ActionSetting;
+        public bool PlayOnStart = true;
+        public UnityEvent OnFinishStory;
 
         private Dictionary<string, IAction> m_actionMap = new Dictionary<string, IAction>();
         [SerializeField] [ReadOnly] private int m_actionPtr = 1;
@@ -16,7 +19,7 @@ namespace UniAvatar
 
         private void Awake()
         {
-            Init();
+            // Init();
         }
 
         private void Start()
@@ -24,8 +27,10 @@ namespace UniAvatar
             Play();
         }
 
-        private void Init()
+        public void Init(ActionSetting actionSetting)
         {
+            ActionSetting = actionSetting;
+            
             m_actionMap.Add("Talk", new Talk());
             m_actionMap.Add("Animate", new Animate());
             m_actionMap.Add("Choice", new Choice());
@@ -36,7 +41,7 @@ namespace UniAvatar
                 {
                     m_nameList.Add(action.Arg1);
                 }
-            }
+            }            
         }
 
         public void Play()
@@ -44,6 +49,7 @@ namespace UniAvatar
             if (m_actionPtr >= ActionSetting.ActionDatas.Count)
             {
                 Debug.Log("Reach last action.");
+                OnFinishStory.Invoke();
                 return;
             }
 

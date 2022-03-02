@@ -23,11 +23,12 @@ namespace UniAvatar
 
         private void Awake()
         {
-            Init();
+            // Init();
         }
 
-        private void Init()
+        public void Init(FlagSetting fs)
         {
+            FlagSetting = fs;
             foreach (var flag in FlagSetting.Flags)
             {
                 RuntimeFlags.Add(new Flag(flag));

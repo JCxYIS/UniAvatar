@@ -2,6 +2,9 @@
 
 An open source dialogue system for Unity Engine with a simple text adventure game (ADV) sample.
 
+## Differences between the original repo
+- [看這個](./diff.md)
+
 ## Demo
 
 <https://harrison-dev.github.io/demos/UniAvatarDemo/>

@@ -16,10 +16,10 @@ namespace UniAvatar
 
         private void Awake()
         {
-            Init();
+            // Init();
         }
 
-        private void Init()
+        public void Init(WordSetting ws)
         {
             m_wordSettingMap = WordSetting.WordSheet.ToDictionary(x => x.PrimaryKey);
         }

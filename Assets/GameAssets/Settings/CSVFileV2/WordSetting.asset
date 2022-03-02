@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8e9ba635b981642bf7f49df29fcdae, type: 3}
   m_Name: WordSetting
   m_EditorClassIdentifier: 
+  GoogleSheetUrl: https://docs.google.com/spreadsheets/d/1oB2HXQk431cSjQhKUycwlZqBkFeKDjdaRFOy_vxZAyM/edit#gid=61129396
   WordsheetCSV: {fileID: 4900000, guid: 3ce8722036ccc704899791c5e6633f58, type: 3}
   WordSheet:
   - PrimaryKey: "\u904A\u7A57"

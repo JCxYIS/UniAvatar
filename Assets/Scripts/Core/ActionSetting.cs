@@ -20,10 +20,12 @@ namespace UniAvatar
     }
 
     [CreateAssetMenu(fileName = "ActionSetting", menuName = "UniAvatar/ActionSetting")]
-    public class ActionSetting : ScriptableObject
-    {
+    public class ActionSetting : BaseSetting
+    {        
         public TextAsset ActionsheetCSV;
         public List<ActionData> ActionDatas = new List<ActionData>();
+
+        protected override TextAsset Csv => ActionsheetCSV;
 
 
         public void SetUpActions()
@@ -58,6 +60,8 @@ namespace UniAvatar
                 if (!string.IsNullOrEmpty(data.Type))
                     ActionDatas.Add(data);
             }
-        }
+        }     
+
+         
     }
 }

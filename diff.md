@@ -2,6 +2,9 @@
 
 > New demo (v2) script can be found [here](https://docs.google.com/spreadsheets/d/1oB2HXQk431cSjQhKUycwlZqBkFeKDjdaRFOy_vxZAyM/edit?usp=sharing)
 
+## 從 Unity 直接下載 Google Sheet 的資料
+- 在 ActionSetting, FlagSetting 跟 WordSetting 加了個填網址的欄位跟下載的按鈕
+- 這樣方便多了 :100:
 
 ## 多選項支援
 - 現在可以顯示多個選項 (Choices)
@@ -14,7 +17,6 @@
 
 ## 監聽結束事件
 - 可以掛對話結束後要做什麼 (UniAvatar 或 GameStoryManager 的 OnFinishStory)
-
 
 
 @jcxyis 20220302

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a0eff752116bf2439f630e43eac5395, type: 3}
   m_Name: FlagSetting
   m_EditorClassIdentifier: 
+  GoogleSheetUrl: https://docs.google.com/spreadsheets/d/1oB2HXQk431cSjQhKUycwlZqBkFeKDjdaRFOy_vxZAyM/edit#gid=2072280677
   WordsheetCSV: {fileID: 4900000, guid: cd353ffeb1bc45840903ce2beba170c8, type: 3}
   Flags:
   - FLG_IS_OK

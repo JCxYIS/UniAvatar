@@ -15,12 +15,14 @@ namespace UniAvatar
     }
 
     [CreateAssetMenu(fileName = "WordSetting", menuName = "UniAvatar/WordSetting")]
-    public class WordSetting : ScriptableObject
+    public class WordSetting : BaseSetting
     {
         [Header("Word Settings")]
         public TextAsset WordsheetCSV;
         public List<WordData> WordSheet = new List<WordData>();
         public List<string> Languages;
+
+        protected override TextAsset Csv => WordsheetCSV;
 
         public void SetUpWord()
         {

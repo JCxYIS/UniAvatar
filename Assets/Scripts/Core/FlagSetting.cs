@@ -9,11 +9,13 @@ namespace UniAvatar
 {
 
     [CreateAssetMenu(fileName = "FlagSetting", menuName = "UniAvatar/FlagSetting")]
-    public class FlagSetting : ScriptableObject
+    public class FlagSetting : BaseSetting
     {
         [Header("Word Settings")]
         public TextAsset WordsheetCSV;
         public List<string> Flags;
+
+        protected override TextAsset Csv => WordsheetCSV;
 
         public void SetUpFlag()
         {

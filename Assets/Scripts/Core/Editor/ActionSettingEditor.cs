@@ -9,6 +9,12 @@ public class ActionSettingEditor : Editor
 {
     public override void OnInspectorGUI()
     {
+        if(GUILayout.Button("Load CSV from Google Sheet"))
+        {
+            var actionSetting = (ActionSetting)target;
+            actionSetting.LoadCsvFromGoogleSheet();
+        }
+
         bool clickBtn = GUILayout.Button("Setup Action Setting");
         if (clickBtn)
         {

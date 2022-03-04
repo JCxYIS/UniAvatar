@@ -33,7 +33,7 @@ namespace UniAvatar
         /// <summary>
         /// If the story has any "custom" action, do what (of that key)?
         /// </summary>
-        public Dictionary<string, System.Action> CustomActions => GameStoryManager.CustomActionMap;
+        public Dictionary<string, System.Action<string[]>> CustomActions => GameStoryManager.CustomActionMap;
 
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace UniAvatar
         /// <param name="storySetting">data</param>
         /// <param name="startAtStep">start at which step?</param>
         /// <param name="customActions">if the story has any "custom" action, do what?</param>
-        public void Init(StorySetting storySetting, int startAtStep = 1, Dictionary<string, System.Action> customActions = null)
+        public void Init(StorySetting storySetting, int startAtStep = 1, Dictionary<string, System.Action<string[]>> customActions = null)
         {
             StorySetting = storySetting;
             FlagManager.Init(storySetting.FlagSetting);

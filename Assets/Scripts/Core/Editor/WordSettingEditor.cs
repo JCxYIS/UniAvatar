@@ -12,7 +12,10 @@ public class WordSettingEditor : Editor
         if(GUILayout.Button("Setup Word Setting from Google Sheet"))
         {
             var wordSetting = (WordSetting)target;
-            wordSetting.LoadCsvFromGoogleSheet();
+            var path = wordSetting.LoadCsvFromGoogleSheet();
+            wordSetting.SetUpWord(System.IO.File.ReadAllText(path));
+            EditorUtility.SetDirty(wordSetting);
+            AssetDatabase.SaveAssets();
         }
 
         bool clickBtn = GUILayout.Button("Setup Word Setting from CSV");

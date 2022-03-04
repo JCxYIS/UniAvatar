@@ -13,7 +13,7 @@ namespace UniAvatar
         public UnityEvent OnFinishStory;
 
         private Dictionary<string, IAction> m_actionMap = new Dictionary<string, IAction>();
-        public Dictionary<string, System.Action> CustomActionMap;
+        public Dictionary<string, System.Action<string[]>> CustomActionMap;
         [SerializeField] [ReadOnly] private int m_actionPtr = 1;
 
         public HashSet<string> m_nameList = new HashSet<string>();
@@ -28,11 +28,11 @@ namespace UniAvatar
             Play();
         }
 
-        public void Init(ActionSetting actionSetting, int startAtStep = 1, Dictionary<string, System.Action> customActions = null)
+        public void Init(ActionSetting actionSetting, int startAtStep = 1, Dictionary<string, System.Action<string[]>> customActions = null)
         {
             ActionSetting = actionSetting;
             m_actionPtr = startAtStep - 1;
-            CustomActionMap = customActions ?? new Dictionary<string, System.Action>();
+            CustomActionMap = customActions ?? new Dictionary<string, System.Action<string[]>>();
             
             m_actionMap.Add("Talk", new Talk());
             m_actionMap.Add("Animate", new Animate());
@@ -124,9 +124,26 @@ namespace UniAvatar
             else if(string.Equals(actionData.Type, "Custom"))
             {
                 // custom action!
-                if(CustomActionMap.TryGetValue(actionData.Arg1, out System.Action a))
-                    a.Invoke();
-                Play();
+                // args
+                List<string> customArgs =  new List<string>{arg2, arg3, arg4, arg5};
+                customArgs.AddRange(extraArgs);
+
+                // trim empty
+                while(customArgs.Count != 0 && string.IsNullOrEmpty(customArgs[customArgs.Count - 1]))
+                {
+                    customArgs.RemoveAt(customArgs.Count - 1);
+                }
+
+                // invoke
+                if(CustomActionMap.TryGetValue(actionData.Arg1, out System.Action<string[]> a))
+                {
+                    a.Invoke(customArgs.ToArray());                
+                }
+                else
+                {
+                    Debug.LogWarning("Cannot find custom function="+actionData.Arg1);
+                }
+                // Play();
                 return;
             }
 

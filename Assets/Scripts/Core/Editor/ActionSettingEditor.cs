@@ -12,7 +12,10 @@ public class ActionSettingEditor : Editor
         if(GUILayout.Button("Setup Action Setting from Google Sheet"))
         {
             var actionSetting = (ActionSetting)target;
-            actionSetting.LoadCsvFromGoogleSheet();
+            var path = actionSetting.LoadCsvFromGoogleSheet();
+            actionSetting.SetUpActions(System.IO.File.ReadAllText(path));
+            EditorUtility.SetDirty(actionSetting);
+            AssetDatabase.SaveAssets();
         }
 
         bool clickBtn = GUILayout.Button("Setup Action Setting from CSV");

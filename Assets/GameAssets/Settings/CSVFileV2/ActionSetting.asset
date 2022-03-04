@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ActionSetting
   m_EditorClassIdentifier: 
   GoogleSheetUrl: https://docs.google.com/spreadsheets/d/1oB2HXQk431cSjQhKUycwlZqBkFeKDjdaRFOy_vxZAyM/edit#gid=0
-  ActionsheetCSV: {fileID: 4900000, guid: 3fcc3768b0ffb1249ab39b207a1dc5df, type: 3}
+  ActionsheetCSV: {fileID: 0}
   ActionDatas:
   - Step: 1
     Type: Talk
@@ -154,12 +154,87 @@ MonoBehaviour:
   - Step: 17
     Type: Talk
     Arg1: "\u5F69\u5E0C"
-    Arg2: "\u90A3\u9EBC\u9019\u500B\u7BC4\u4F8B\u5C31\u5230\u9019\u908A\u7D50\u675F\u4E86\uFF01"
+    Arg2: "\u63A5\u4E0B\u4F86\u4ECB\u7D39\u51FD\u5F0F\u7684\u529F\u80FD"
     Arg3: 
     Arg4: 
     Arg5: 
     ExtraArgs: []
   - Step: 18
+    Type: Talk
+    Arg1: "\u904A\u7A57"
+    Arg2: "\u50CF\u662F\u9019\u6A23\uFF01"
+    Arg3: 
+    Arg4: 
+    Arg5: 
+    ExtraArgs: []
+  - Step: 19
+    Type: Custom
+    Arg1: FUNC_EXAMPLE
+    Arg2: 4
+    Arg3: 8
+    Arg4: 7
+    Arg5: 6
+    ExtraArgs:
+    - 3
+  - Step: 20
+    Type: Talk
+    Arg1: "\u5F69\u5E0C"
+    Arg2: "\u525B\u525B\u57F7\u884C\u4E86\u81EA\u5B9A\u7FA9\u7684\u51FD\u5F0F\u3002\u53EF\u4EE5\u770B\u7DE8\u8F2F\u5668\u7684
+      Console \u767C\u751F\u4E86\u4EC0\u9EBC"
+    Arg3: 
+    Arg4: 
+    Arg5: 
+    ExtraArgs: []
+  - Step: 21
+    Type: Talk
+    Arg1: "\u904A\u7A57"
+    Arg2: "\u51FD\u5F0F\u7684\u5167\u5BB9\u5BEB\u5728 InitDemo.cs \u88E1\u9762\uFF0C\u53EF\u4EE5\u53C3\u8003\u770B\u770B"
+    Arg3: 
+    Arg4: 
+    Arg5: 
+    ExtraArgs: []
+  - Step: 22
+    Type: Talk
+    Arg1: "\u5F69\u5E0C"
+    Arg2: "\u4F60\u4E5F\u53EF\u4EE5\u628A\u57F7\u884C\u7D50\u679C\u7528 Flag \u5B58\u4E0B\u4F86\uFF0C\u9019\u6A23\u5C31\u53EF\u4EE5\u5728\u5C0D\u8A71\u4E2D\u986F\u793A"
+    Arg3: 
+    Arg4: 
+    Arg5: 
+    ExtraArgs: []
+  - Step: 23
+    Type: Talk
+    Arg1: "\u904A\u7A57"
+    Arg2: "\u4F8B\u5982\u5728\u525B\u525B\u7684\u51FD\u5F0F\u4E2D\uFF0C\u6211\u628A
+      Flag FLG_F1 \u8A2D\u5B9A\u70BA\u7576\u6642\u7684\u6642\u9593\u4E86"
+    Arg3: 
+    Arg4: 
+    Arg5: 
+    ExtraArgs: []
+  - Step: 24
+    Type: Talk
+    Arg1: "\u904A\u7A57"
+    Arg2: "\u5C31\u662F {FLG_F1}"
+    Arg3: 
+    Arg4: 
+    Arg5: 
+    ExtraArgs: []
+  - Step: 25
+    Type: Animate
+    Arg1: "\u5F69\u5E0C"
+    Arg2: CharacterJump
+    Arg3: 
+    Arg4: 
+    Arg5: 
+    ExtraArgs: []
+  - Step: 26
+    Type: Talk
+    Arg1: "\u5F69\u5E0C"
+    Arg2: "\u90A3\u9EBC\u9019\u500B\u7BC4\u4F8B\u5C31\u5230\u9019\u908A\u7D50\u675F\u4E86\uFF01"
+    Arg3: 
+    Arg4: 
+    Arg5: 
+    ExtraArgs: []
+  - Step: 27
     Type: Talk
     Arg1: "\u904A\u7A57"
     Arg2: "\u611F\u8B1D\u4F60\u7684\u904A\u73A9\uFF01"

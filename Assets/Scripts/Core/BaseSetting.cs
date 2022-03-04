@@ -12,13 +12,14 @@ namespace UniAvatar
         public string GoogleSheetUrl;
 
         protected abstract TextAsset Csv { get; }
-
-        public void LoadCsvFromGoogleSheet()
+        
+        public string LoadCsvFromGoogleSheet()
         {
 #if UNITY_EDITOR
             string path = Csv == null ? UnityEditor.FileUtil.GetUniqueTempPathInProject() : UnityEditor.AssetDatabase.GetAssetPath(Csv);
             JC.Utilities.GSheetDownloader.DownloadCsv(path, GoogleSheetUrl);                
             // EditorUtility.SetDirty(CsvPath);
+            return path;
 #endif
         }
     }

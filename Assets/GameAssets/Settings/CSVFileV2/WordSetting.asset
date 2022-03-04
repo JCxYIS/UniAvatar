@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WordSetting
   m_EditorClassIdentifier: 
   GoogleSheetUrl: https://docs.google.com/spreadsheets/d/1oB2HXQk431cSjQhKUycwlZqBkFeKDjdaRFOy_vxZAyM/edit#gid=61129396
-  WordsheetCSV: {fileID: 4900000, guid: 3ce8722036ccc704899791c5e6633f58, type: 3}
+  WordsheetCSV: {fileID: 0}
   WordSheet:
   - PrimaryKey: "\u904A\u7A57"
     Contents:

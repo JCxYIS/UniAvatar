@@ -51,8 +51,18 @@ public class InitDemo : MonoBehaviour
 
         uniAvatar.Init(m_storys[m_storyDropdown.value], int.Parse(m_startOnStep.text));
 
-        uniAvatar.CustomActions.Add("DO_PRINT_HELLO_IN_CONSOLE", ()=>{
-            print("Hello");
+        uniAvatar.CustomActions.Add("FUNC_EXAMPLE", (param)=>{
+            string output = "你執行了 FUNC_EXAMPLE，帶入參數分別有：";
+            for(int i = 0; i < param.Length; i++)
+            {
+                output += param[i] + " ";
+            }
+            print(output);
+
+            // set flag
+            UniAvatarManager.Instance.FlagManager.Set("FLG_F1", System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"));
+
+            // jump to next step
             UniAvatarManager.Instance.GameStoryManager.Play();
         });
 

@@ -12,7 +12,10 @@ public class FlagSettingEditor : Editor
         if(GUILayout.Button("Setup Flag Setting from Google Sheet"))
         {
             var flagSetting = (FlagSetting)target;
-            flagSetting.LoadCsvFromGoogleSheet();
+            var path = flagSetting.LoadCsvFromGoogleSheet();      
+            flagSetting.SetUpFlag(System.IO.File.ReadAllText(path));
+            EditorUtility.SetDirty(flagSetting);
+            AssetDatabase.SaveAssets();
         }
 
         bool clickBtn = GUILayout.Button("Setup Flag Setting from CSV");

@@ -7,6 +7,7 @@ using UniRx;
 using Utopia;
 using RedBlueGames.Tools.TextTyper;
 using TMPro;
+using System.Text.RegularExpressions;
 
 namespace UniAvatar
 {
@@ -88,6 +89,8 @@ namespace UniAvatar
             // Get content
             string name = WordsManager.Instance.GetWordByKey(nameKey);
             string content = WordsManager.Instance.GetWordByKey(contentKey);
+            name = FormatDialogue(name);
+            content = FormatDialogue(content);
 
             m_nameBox.SetName(name);
             m_textController?.TypeText(content);
@@ -109,5 +112,14 @@ namespace UniAvatar
             }
         }
 
+        private string FormatDialogue(string dialogue)
+        {
+            // match {} content
+            Regex regex = new Regex(@"\{([^}]+)\}");
+            string result = regex.Replace(dialogue, new MatchEvaluator(match=>{
+                return UniAvatarManager.Instance.FlagManager.Get(match.Groups[1].Value);
+            }));
+            return result;
+        }
     }
 }

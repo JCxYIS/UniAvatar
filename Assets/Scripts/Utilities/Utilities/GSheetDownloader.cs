@@ -26,7 +26,7 @@ namespace JC.Utilities
             string url = $"https://docs.google.com/spreadsheets/d/{gsheetKey}/export?format=csv&id={gsheetKey}&gid={gsheetGid}";
             using (UnityWebRequest www = UnityWebRequest.Get(url))
             {
-                Debug.Log("[GSheetDownloader] Download Start From="+url);
+                Debug.Log("[GSheetDownloader] Download Start From=<color=lime>"+url+"</color> To <color=lime>"+downloadPath+"</color>");
                 www.SendWebRequest();
 
                 while (!www.isDone)

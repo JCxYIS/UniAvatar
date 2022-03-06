@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a0eff752116bf2439f630e43eac5395, type: 3}
-  m_Name: FlagSetting
+  m_Name: V2_FlagSetting
   m_EditorClassIdentifier: 
   GoogleSheetUrl: https://docs.google.com/spreadsheets/d/1oB2HXQk431cSjQhKUycwlZqBkFeKDjdaRFOy_vxZAyM/edit#gid=2072280677
   WordsheetCSV: {fileID: 0}

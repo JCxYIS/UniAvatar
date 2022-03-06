@@ -18,7 +18,7 @@ MonoBehaviour:
   - Step: 1
     Type: Talk
     Arg1: "\u904A\u7A57"
-    Arg2: Dialogue 1-1
+    Arg2: "\u597D\u9577\u7684\u6587\u5B57\u597D\u9577\u7684\u6587\u5B57\u597D\u9577\u7684\u6587\u5B57\u597D\u9577\u7684\u6587\u5B57\u597D\u9577\u7684\u6587\u5B57\u597D\u9577\u7684\u6587\u5B57\u597D\u9577\u7684\u6587\u5B57\u597D\u9577\u7684\u6587\u5B57\u597D\u9577\u7684\u6587\u5B57\u597D\u9577\u7684\u6587\u5B57\u597D\u9577\u7684\u6587\u5B57\u597D\u9577\u7684\u6587\u5B57\u597D\u9577\u7684\u6587\u5B57\u597D\u9577\u7684\u6587\u5B57\u597D\u9577\u7684\u6587\u5B57\u597D\u9577\u7684\u6587\u5B57"
     Arg3: 
     Arg4: 
     Arg5: 
@@ -26,7 +26,8 @@ MonoBehaviour:
   - Step: 2
     Type: Talk
     Arg1: "\u5F69\u5E0C"
-    Arg2: Dialogue 1-2
+    Arg2: "\u6211\u6253\u9019\u7A2E\u9017\u9EDE\u6703\u6709\u554F\u984C\u55CE, ,
+      \u6709\u55CE\uFF1F"
     Arg3: 
     Arg4: 
     Arg5: 
@@ -34,31 +35,31 @@ MonoBehaviour:
   - Step: 3
     Type: Talk
     Arg1: "\u5F69\u5E0C"
-    Arg2: Dialogue 1-3
+    Arg2: "\u53EF\u4EE5\u63DB\u884C\n\u50CF\u9019\u6A23"
     Arg3: 
     Arg4: 
     Arg5: 
     ExtraArgs: []
   - Step: 4
-    Type: Stop
-    Arg1: 
-    Arg2: 
+    Type: Talk
+    Arg1: "\u904A\u7A57"
+    Arg2: "\"\u63DB\u884C\"\n\u9019\u6A23\u6709\u9EDE\u53B2\u5BB3"
     Arg3: 
     Arg4: 
     Arg5: 
     ExtraArgs: []
   - Step: 5
-    Type: 
-    Arg1: 
-    Arg2: 
+    Type: Talk
+    Arg1: "\u5F69\u5E0C"
+    Arg2: "\u6C92\u6709\u63DB\u884C\u4F46\u6709\"\u3002"
     Arg3: 
     Arg4: 
     Arg5: 
     ExtraArgs: []
   - Step: 6
-    Type: Talk
-    Arg1: "\u5F69\u5E0C"
-    Arg2: Dialogue 2-1
+    Type: Stop
+    Arg1: 
+    Arg2: 
     Arg3: 
     Arg4: 
     Arg5: 
@@ -81,11 +82,11 @@ MonoBehaviour:
     ExtraArgs: []
   - Step: 9
     Type: Custom
-    Arg1: DO_PRINT_HELLO_IN_CONSOLE
-    Arg2: 
-    Arg3: 
-    Arg4: 
-    Arg5: 
+    Arg1: FUNC_EXAMPLE
+    Arg2: 4
+    Arg3: 8
+    Arg4: 7
+    Arg5: 6
     ExtraArgs: []
   - Step: 10
     Type: Talk

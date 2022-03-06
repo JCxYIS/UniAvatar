@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff7e28f0b70885540bbaf407d093d1ed, type: 3}
-  m_Name: ActionSetting
+  m_Name: V2_ActionSetting
   m_EditorClassIdentifier: 
   GoogleSheetUrl: https://docs.google.com/spreadsheets/d/1oB2HXQk431cSjQhKUycwlZqBkFeKDjdaRFOy_vxZAyM/edit#gid=0
   ActionsheetCSV: {fileID: 0}

@@ -106,7 +106,7 @@ namespace Utopia
 
         private static string[] SplitCsvLine(string line)
         {
-            Debug.Log(line);
+            // Debug.Log(line);
             List<string> result = new List<string>();
             // string[] word = line.Split(',');
 

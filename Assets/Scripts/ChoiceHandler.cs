@@ -52,6 +52,7 @@ namespace UniAvatar
         {
             // Fade BG
 			m_canvasGroup.alpha = 1;
+            m_canvasGroup.interactable = true;
             BackgroundImg.gameObject.SetActive(true);
             BackgroundImg.color = Color.clear;
             BackgroundImg.DOFade(0.5f, BG_FadeInDuration);
@@ -113,8 +114,10 @@ namespace UniAvatar
                        	m_subs.Clear();
 
                        	// anim
+                        m_canvasGroup.interactable = false;
 						m_canvasGroup.DOFade(0, BG_FadeOutDuration)
 							.OnComplete(()=>{
+                                ChoiceManager.Instance.IsShowingChoice = false;
 								callback.Invoke();
                        	        Init();
 							});

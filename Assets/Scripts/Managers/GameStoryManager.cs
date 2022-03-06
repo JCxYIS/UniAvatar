@@ -49,6 +49,13 @@ namespace UniAvatar
 
         public void Play()
         {
+            // If dialogue is still typing, or player is still making a choice
+            // Halt!
+            if(DialogueManager.Instance.IsTyping || ChoiceManager.Instance.IsShowingChoice)
+            {
+                return;
+            }
+
             // eof
             if (m_actionPtr >= ActionSetting.ActionDatas.Count)
             {

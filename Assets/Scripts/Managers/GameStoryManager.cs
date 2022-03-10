@@ -15,6 +15,7 @@ namespace UniAvatar
         private Dictionary<string, IAction> m_actionMap = new Dictionary<string, IAction>();
         public Dictionary<string, System.Action<string[]>> CustomActionMap;
         [SerializeField] [ReadOnly] private int m_actionPtr = 1;
+        [ReadOnly] public bool CanGotoNextStep = true;
 
         public HashSet<string> m_nameList = new HashSet<string>();
 
@@ -28,6 +29,12 @@ namespace UniAvatar
             Play();
         }
 
+        /// <summary>
+        /// Init
+        /// </summary>
+        /// <param name="actionSetting"></param>
+        /// <param name="startAtStep"></param>
+        /// <param name="customActions"></param>
         public void Init(ActionSetting actionSetting, int startAtStep = 1, Dictionary<string, System.Action<string[]>> customActions = null)
         {
             ActionSetting = actionSetting;
@@ -47,12 +54,16 @@ namespace UniAvatar
             }            
         }
 
+        /// <summary>
+        /// Play from the next step
+        /// </summary>
         public void Play()
         {
             // If dialogue is still typing, or player is still making a choice
             // Halt!
-            if(DialogueManager.Instance.IsTyping || ChoiceManager.Instance.IsShowingChoice)
+            if(!CanGotoNextStep || DialogueManager.Instance.IsTyping || ChoiceManager.Instance.IsShowingChoice)
             {
+                Debug.Log("Cannot go to the next step.");
                 return;
             }
 
@@ -165,5 +176,14 @@ namespace UniAvatar
             }
         }
 
+        /// <summary>
+        /// Jump to the specified step and play
+        /// </summary>
+        /// <param name="step"></param>
+        public void JumpToStep(int step)
+        {
+            m_actionPtr = step - 1;
+            Play();
+        }
     }
 }

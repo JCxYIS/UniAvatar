@@ -30,12 +30,18 @@ namespace UniAvatar
             // To avoid player click too fast and skip what they didn't want to skip.
             Observable
                 .Merge(btnStream, keyStream)
-                .ThrottleFirst(System.TimeSpan.FromSeconds(m_clickColddown))
+                .ThrottleFirst(System.TimeSpan.FromSeconds(m_clickColddown))            
                 .Subscribe(_ => HandleClick());
         }
 
         protected void HandleClick()
         {
+            if(!gameObject)
+            {
+                // has been destroyed, do exit
+                return;
+            }
+
             var dialogue = DialogueManager.Instance;
             if(dialogue.IsTyping)
             {

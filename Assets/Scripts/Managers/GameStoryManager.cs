@@ -81,7 +81,7 @@ namespace UniAvatar
             // exit
             if (string.IsNullOrEmpty(actionData.Type) || actionData.Type == "Stop")
             {
-                Debug.Log("Stop / Empty action. Now exit.");
+                Debug.Log("Stop / Empty action. Now exit. Step="+m_actionPtr);
                 OnFinishStory.Invoke();
                 return;
             }

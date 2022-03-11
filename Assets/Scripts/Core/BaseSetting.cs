@@ -21,6 +21,7 @@ namespace UniAvatar
             // EditorUtility.SetDirty(CsvPath);
             return path;
 #endif
+            throw new NotSupportedException("This finc should only be executed inside Unity Editor");
         }
     }
 }

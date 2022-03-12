@@ -56,7 +56,7 @@ namespace UniAvatar
 
     interface IJump : IAnimateProp
     {
-        void Jump();
+        void Jump(float power);
         void InterruptJump();
     }
 

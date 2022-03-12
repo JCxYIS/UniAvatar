@@ -7,6 +7,8 @@ namespace UniAvatar.Example
     [CreateAssetMenu(fileName = "CharacterJump", menuName = "UniAvatar/Animation/CharacterJump")]
     public class CharacterJump : AnimationFunctionBase
     {
+        public float power = 50;
+
         private IJump m_jumpTarget;
 
         public override void Interrupt()
@@ -20,7 +22,7 @@ namespace UniAvatar.Example
 
             // Jumping
             m_jumpTarget = targetTransform.GetComponent<IJump>();
-            m_jumpTarget.Jump();
+            m_jumpTarget.Jump(power);
         }
     }
 }

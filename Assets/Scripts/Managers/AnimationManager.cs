@@ -39,11 +39,18 @@ namespace UniAvatar
             m_animationFunctionMap = AnimationFunctionSetting.ToDictionary(key => key.Key, value => value.AnimationFunction);
         }
 
-        // TODO : interrput
         public void PlayAnim(string targetKey, string functionKey)
         {
-            var target = m_animationTargetMap[targetKey];
-            var function = m_animationFunctionMap[functionKey];
+            if(!m_animationTargetMap.TryGetValue(targetKey, out var target))
+            {
+                Debug.LogWarning($"Cannot get animation target \"{targetKey}\". Now ignore.");
+                return;
+            }
+            if(!m_animationFunctionMap.TryGetValue(functionKey, out var function))
+            {
+                Debug.LogWarning($"Cannot get animation function \"{targetKey}\". Now ignore.");
+                return;
+            }
 
             var functionInstnace = function.CreateInstance();
             functionInstnace.Play(target);
@@ -51,8 +58,16 @@ namespace UniAvatar
 
         public void InterruptAnim(string targetKey, string functionKey)
         {
-            var target = m_animationTargetMap[targetKey];
-            var function = m_animationFunctionMap[functionKey];
+            if(!m_animationTargetMap.TryGetValue(targetKey, out var target))
+            {
+                Debug.LogWarning($"Cannot get animation target \"{targetKey}\". Now ignore.");
+                return;
+            }
+            if(!m_animationFunctionMap.TryGetValue(functionKey, out var function))
+            {
+                Debug.LogWarning($"Cannot get animation function \"{targetKey}\". Now ignore.");
+                return;
+            }
 
             var functionInstnace = function.CreateInstance();
             functionInstnace.Interrupt();

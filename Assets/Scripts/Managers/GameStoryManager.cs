@@ -109,7 +109,7 @@ namespace UniAvatar
                 }
                 else if(!int.TryParse(arg3, out matchStep))
                 {
-                    Debug.LogError("Failed to match matchStep of branch");
+                    Debug.LogError("Failed to parse matchStep of branch");
                     return;
                 }
                 if(string.IsNullOrWhiteSpace(arg4))
@@ -119,29 +119,26 @@ namespace UniAvatar
                 }
                 else if(!int.TryParse(arg4, out unmatchStep))
                 {
-                    Debug.LogError("Failed to match unmatchStep of branch");
+                    Debug.LogError("Failed to parse unmatchStep of branch");
                     return;
                 }
 
                 // match condition
                 if (string.IsNullOrWhiteSpace(flag) || string.Equals(FlagManager.Instance.Get(flag), matchValue))
                 {
-                    m_actionPtr = matchStep - 1;
+                    JumpToStep(matchStep);
                     // print("branch condition match, goto "+m_actionPtr);
                 }
                 else
                 {
-                    m_actionPtr = unmatchStep - 1;
+                    JumpToStep(unmatchStep);
                     // print("branch condition unmatch, goto "+m_actionPtr);
                 }
-
-                // Also, jump to next step after branching.
-                Play();
                 return;
             }
+            // custom action!
             else if(string.Equals(actionData.Type, "Custom"))
             {
-                // custom action!
                 // args
                 List<string> customArgs =  new List<string>{arg2, arg3, arg4, arg5};
                 customArgs.AddRange(extraArgs);
@@ -169,7 +166,7 @@ namespace UniAvatar
             var action = m_actionMap[actionData.Type];
             action.Execute(arg1, arg2, arg3, arg4, arg5, ()=>Play(), extraArgs);
 
-            // If the action is animate, pass to next.
+            // If the action is animate, pass.
             if (string.Equals(actionData.Type, "Animate"))
             {
                 Play();
